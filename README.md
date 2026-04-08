@@ -14,6 +14,7 @@ A modern HTML project utilizing Tailwind CSS for building responsive web applica
 
 - Node.js (v12.x or higher)
 - npm or yarn
+- vercel verification
 
 ## 🛠️ Installation
 
