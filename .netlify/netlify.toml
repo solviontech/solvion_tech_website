@@ -1,0 +1,39 @@
+plugins = []
+headers = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\CHINMAYA\\OneDrive\\Pictures\\Desktop\\SOLVIONTECH2.0\\dist"
+publishOrigin = "ui"
+commandOrigin = "ui"
+command = "npm run build"
+
+[build.environment]
+NETLIFY_DATABASE_URL = "postgresql://neondb_owner:npg_tz8As5SKZLGy@ep-sweet-bar-ae1oeb7e.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
