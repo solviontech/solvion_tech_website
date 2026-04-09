@@ -256,7 +256,7 @@ const Contact = () => {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-4xl font-bold mb-4">Visit Our <span className="gradient-text">Studio</span></h2>
+                  <h2 className="text-4xl font-bold mb-4">Visit Our <span className="gradient-text">Office</span></h2>
                   <p className="text-xl text-text-secondary leading-relaxed">Stop by for a coffee and discuss how we can transform your business with AI.</p>
                 </div>
 
