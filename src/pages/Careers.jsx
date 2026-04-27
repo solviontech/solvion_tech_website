@@ -314,6 +314,7 @@ const Careers = () => {
                         <span className="flex items-center gap-2"><Clock size={16} className="text-primary" /> {job.posted}</span>
                       </div>
                       <p className="text-text-secondary leading-relaxed max-w-2xl">{job.desc}</p>
+                      <p className="text-sm font-bold text-primary mt-2">Want to apply? Send your resume to <a href="mailto:career@solviontech.com" >career@solviontech.com</a></p>
                     </div>
                     <div className="flex items-center gap-4">
                       <button 
