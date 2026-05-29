@@ -332,7 +332,7 @@ const Services = () => {
               <DollarSign className="w-4 h-4 text-primary" />
               <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Scale Your Success</span>
             </motion.div>
-            <h2 className="text-4xl lg:text-7xl font-bold text-gray-900 leading-tight">Ready-to-Deploy <span className="gradient-text">Packages</span></h2>
+            <h2 className="text-4xl lg:text-7xl font-bold text-gray-900 leading-tight">Website <span className="gradient-text">Services</span></h2>
             <p className="text-xl text-text-secondary max-w-2xl mx-auto">Transparent pricing models designed to grow with your business, from startups to enterprises.</p>
           </div>
 
@@ -340,61 +340,146 @@ const Services = () => {
             {[
               {
                 tier: 'Starter',
-                price: '₹14999/-',
-                desc: 'Basic digital presence for small businesses.',
+                price: '₹6,999',
+                desc: 'Perfect for small businesses getting started online.',
                 features: [
-                  { text: '1 Free Domain Name', active: true },
-                  { text: '1 Free Web Hosting*', active: true },
-                  { text: '10 Page (Static Website)', active: true },
-                  { text: 'Business Email id', active: true },
-                  { text: 'Limited Images & Videos', active: true },
-                  { text: 'SEO Ready Website', active: true },
-                  { text: '100% Responsive', active: true },
-                  { text: 'Live Chat Integration', active: false },
-                  { text: 'Social Media Integration', active: false },
-                  { text: 'Payment Gateway', active: false },
-                  { text: 'Site Audit', active: false },
-                  { text: 'Support 3 Months', active: true },
+                  { text: 'Static Website', active: true },
+                  { text: 'No Domain', active: true },
+                  { text: 'SEO Friendly', active: true },
+                  { text: '3 Months Support', active: true },
+                  { text: 'Limited Image', active: true },
+                  { text: '5-6 Pages', active: true },
+                  { text: 'Mobile Responsive', active: true },
                 ]
               },
               {
                 tier: 'Growth',
-                price: '₹19999/-',
-                desc: 'Enhanced features and dynamic capabilities for scaling.',
+                price: '₹14,999',
+                desc: 'Dynamic website with advanced features for growing businesses.',
                 features: [
-                  { text: '1 Free Domain Name', active: true },
-                  { text: '1 Free Web Hosting*', active: true },
-                  { text: '10 Page Dynamic', active: true },
-                  { text: 'Business Email id', active: true },
-                  { text: 'Unlimited Images & Videos', active: true },
-                  { text: 'SEO Ready Website', active: true },
-                  { text: '100% Responsive', active: true },
-                  { text: 'Live Chat Integration', active: false },
-                  { text: 'Social Media Integration', active: true },
-                  { text: 'Payment Gateway', active: false },
-                  { text: 'Site Audit', active: false },
-                  { text: 'Support 6 months', active: true },
+                  { text: 'Dynamic Website', active: true },
+                  { text: 'Added Features', active: true },
+                  { text: 'Domain Free', active: true },
+                  { text: 'SEO Friendly', active: true },
+                  { text: '6 Months Support', active: true },
+                  { text: 'Business E-mail Id', active: true },
+                  { text: 'Unlimited Image & Video', active: true },
+                  { text: '10-15 Pages', active: true },
+                  { text: 'Mobile Responsive', active: true },
                 ],
                 popular: true
               },
               {
                 tier: 'Enterprise',
                 price: 'Custom',
-                desc: 'Full-scale transformation for large enterprises.',
+                desc: 'Fully tailored solutions for enterprise-level needs.',
                 features: [
-                  { text: 'Strategic consulting', active: true },
-                  { text: 'Unlimited support', active: true },
-                  { text: 'Business Email id', active: true },
-                  { text: 'Unlimited Images & Videos', active: true },
-                  { text: 'SEO Ready Website', active: true },
-                  { text: '100% Responsive', active: true },
-                  { text: 'Live Chat Integration', active: true },
-                  { text: 'Social Media Integration', active: true },
-                  { text: 'Payment Gateway', active: true },
-                  { text: 'Site Audit', active: true },
-                  { text: 'Custom SLA', active: true },
-                  { text: '24/7 dedicated team', active: true },
-                  { text: 'Full AI Integration', active: true },
+                  { text: 'How the Client Wants', active: true },
+                  { text: 'As per the Customer', active: true },
+                  { text: '24/7 Dedicated Team', active: true },
+                ]
+              }
+            ].map((pkg, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className={`p-10 rounded-[32px] bg-white border-2 flex flex-col ${pkg.popular ? 'border-primary ring-4 ring-primary/10 shadow-xl' : 'border-border shadow-sm'}`}
+              >
+                {pkg.popular && (
+                  <span className="bg-primary text-white text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full self-start mb-6">
+                    Most Popular
+                  </span>
+                )}
+                <h3 className="text-2xl font-bold mb-2">{pkg.tier}</h3>
+                <div className="flex items-baseline gap-1 mb-4">
+                  <span className="text-4xl font-bold text-gray-900">{pkg.price}</span>
+                </div>
+                <p className="text-text-secondary mb-8">{pkg.desc}</p>
+                <div className="space-y-4 mb-10 flex-1">
+                  {pkg.features.map(f => (
+                    <div key={f.text} className={`flex items-center gap-3 ${!f.active ? 'opacity-50' : ''}`}>
+                      {f.active ? (
+                        <CheckCircle size={18} className="text-success shrink-0" />
+                      ) : (
+                        <X size={18} className="text-gray-400 shrink-0" />
+                      )}
+                      <span className={`text-sm font-medium ${f.active ? 'text-text-primary' : 'text-text-secondary line-through'}`}>
+                        {f.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <Link 
+                  to="/contact"
+                  className={`w-full py-4 rounded-xl font-bold transition-all text-center flex items-center justify-center ${pkg.popular ? 'btn-primary' : 'bg-surface hover:bg-primary/5 text-primary border border-primary/20'}`}
+                >
+                  Get Started
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Marketing Pricing Section */}
+      <section className="section bg-white overflow-hidden">
+        <div className="container-custom">
+          <div className="text-center max-w-4xl mx-auto mb-20 space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20"
+            >
+              <BarChart className="w-4 h-4 text-primary" />
+              <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Grow Your Brand</span>
+            </motion.div>
+            <h2 className="text-4xl lg:text-7xl font-bold text-gray-900 leading-tight">Digital Marketing <span className="gradient-text">Services</span></h2>
+            <p className="text-xl text-text-secondary max-w-2xl mx-auto">Boost your online presence with our tailored digital marketing packages designed for every business size.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {[
+              {
+                tier: 'Starter',
+                price: '₹9,999',
+                desc: 'Build your social media presence with organic growth strategies.',
+                features: [
+                  { text: 'Ad Posting Unpaid', active: true },
+                  { text: 'Everyday Post on Social Media (10-15)', active: true },
+                  { text: 'Image, Poster', active: true },
+                  { text: 'Increase SEO Ranks & AI Ranking', active: true },
+                  { text: 'Festival Wishes', active: true },
+                  { text: 'Content Creation', active: true },
+                ]
+              },
+              {
+                tier: 'Growth',
+                price: '₹14,999',
+                desc: 'Accelerate growth with paid ads and premium content strategies.',
+                features: [
+                  { text: 'Ad Posting Paid', active: true },
+                  { text: '20 Posts in All Social Media', active: true },
+                  { text: 'Reel on Video Ad - 1', active: true },
+                  { text: 'Increase SEO Ranks', active: true },
+                  { text: 'Festival Wishes', active: true },
+                  { text: 'Content Creation', active: true },
+                ],
+                popular: true
+              },
+              {
+                tier: 'Enterprise',
+                price: '₹29,999',
+                desc: 'Full-scale marketing with paid promotions and advanced SEO.',
+                features: [
+                  { text: 'Ad Posting Paid', active: true },
+                  { text: '35 Posts in Social Media', active: true },
+                  { text: 'Reel on Video - 2', active: true },
+                  { text: 'Paid Promotion', active: true },
+                  { text: 'SEO Optimize', active: true },
+                  { text: 'SMO Optimize', active: true },
+                  { text: 'Backlinks', active: true },
                 ]
               }
             ].map((pkg, i) => (
